@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rotating Circle</title>
+
+    <style>
+      body {
+        background: #ccc;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      #circle {
+        margin: auto;
+        margin-top: 30vh;
+        background: #ccc;
+        height: 250px;
+        width: 250px;
+        border: 7px dashed;
+        border-radius: 50%;
+        border-color: blue blue orangered orangered;
+      }
+      .rotate {
+        animation: rotate 10s linear infinite;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+      .normal {
+        animation: rotate-forward 10s linear infinite;
+      }
+
+      @keyframes rotate-forward {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="circle" class="rotate normal" onclick="rotateCircle()"></div>
+
+    <script>
+      var rotate = true;
+
+      function rotateCircle() {
+        if (rotate == true) {
+          document.getElementById("circle").className = "rotate";
+          rotate = false;
+        } else {
+          document.getElementById("circle").className = "normal";
+          rotate = true;
+        }
+      }
+    </script>
+  </body>
+</html>
